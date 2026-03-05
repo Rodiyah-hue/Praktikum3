@@ -1,0 +1,622 @@
+/* ── RESET & BASE ───────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #ad265c;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.navbar {
+  background: rgba(255, 255, 255, 0.7); /* soft transparan */
+  backdrop-filter: blur(12px);
+  padding: 0 32px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6B5B6B; /* dusty soft purple-pink */
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.logo-icon {
+  color: #FF63C3; /* pastel pink pop */
+  font-size: 1.5rem;
+}
+
+/* Menu Links */
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar__links a {
+  color: #6B5B6B; /* soft dark pastel tone */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: #FF63C3;
+}
+
+/* Menu Links */
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar__links a {
+  color: #7A5C74; /* soft dusty pink */
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: #FF63C3; /* pastel pink hover */
+}
+
+/* Tombol CTA */
+.btn-primary {
+  background: linear-gradient(135deg, #FF9ED2, #A0E7FF);
+  color: #5A4A4A;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 158, 210, 0.4);
+}
+/* ── HERO ───────────────────────────────────── */
+.hero {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(
+    135deg,
+    #FFD6EC,   /* pastel pink */
+    #E0F4FF,   /* baby blue */
+    #E8FFE8    /* mint pastel */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hiasan bunga kiri atas */
+.hero::before {
+  content: "🌸";
+  position: absolute;
+  font-size: 80px;
+  top: 40px;
+  left: 60px;
+  opacity: 0.25;
+  transform: rotate(-15deg);
+}
+
+/* Hiasan bunga kanan bawah */
+.hero::after {
+  content: "🌼";
+  position: absolute;
+  font-size: 70px;
+  bottom: 40px;
+  right: 60px;
+  opacity: 0.25;
+  transform: rotate(20deg);
+}
+
+/* Konten supaya tetap di atas */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #5A4A4A;
+}
+
+.hero__content {
+  max-width: 640px;
+  text-align: center;
+}
+
+.hero__badge {
+  background-color: rgba(214, 58, 120, 0.15);
+  color: #a11c54;     /* pink tua */
+  border: 1px solid #d63a78;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #c89a7d;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #d63a78;
+}
+
+.hero__desc {
+  color: #e8c4a0;
+  font-size: 1.1rem;
+  margin-bottom: 36px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #6c63ff;
+  color: #ffffff;
+}
+/* ── CONTAINER (utility class) ──────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── SKILLS SECTION ─────────────────────────── */
+.skills {
+  padding: 96px 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666666;
+  margin-bottom: 56px;
+}
+
+/* ── CSS GRID: 3 kolom ──────────────────────── */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── SKILL CARD ─────────────────────────────── */
+.skill-card {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 32px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+/* ════════════════════════════════════════════
+   RESPONSIVE DESIGN — Mobile First Override
+   Breakpoints: 768px (tablet), 1024px (desktop)
+═══════════════════════════════════════════════ */
+
+/* ── TABLET & ke bawah (max 1023px) ────────── */
+@media (max-width: 1023px) {
+
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr); /* 3 kolom -> 2 kolom */
+  }
+
+  .hero__title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ── MOBILE (max 767px) ─────────────────────── */
+@media (max-width: 767px) {
+
+  /* Navbar: sembunyikan menu, tampilkan hamburger (sederhana) */
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__links {
+    display: none; /* sembunyikan menu di mobile */
+  }
+
+  /* Hero: font lebih kecil */
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__desc {
+    font-size: 1rem;
+  }
+
+  /* Skills: 1 kolom di mobile */
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Container: padding lebih kecil */
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Skills section: padding lebih kecil */
+  .skills {
+    padding: 64px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+/* ── FOOTER ─────────────────────────────────── */
+.footer {
+  background: linear-gradient(
+    135deg,
+    #F8C8DC,
+    #CDB4DB
+  );
+  padding: 32px 0;
+}
+
+/* CONTAINER */
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* biar nggak turun */
+}
+
+/* Bagi jadi 3 bagian rata */
+.footer__brand,
+.footer__copy,
+.footer__links {
+  flex: 1;
+}
+
+/* Kiri */
+.footer__brand {
+  color: #4A3F4F;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+/* Tengah */
+.footer__copy {
+  color: #5C4E5C;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Kanan */
+.footer__links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.footer__links a {
+  color: #5C4E5C;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__links a:hover {
+  color: #ffffff;
+}
+/* ── PORTFOLIO SECTION ─────────────────────── */
+.portfolio {
+  padding: 96px 0;
+  background: linear-gradient(
+    135deg,
+    #FFD6EC,
+    #E0F4FF,
+    #E8FFE8
+  );
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.portfolio-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 200px;          /* Biar nggak kegedean */
+  object-fit: cover;      /* Biar proporsional */
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+/* ── HIRE SECTION ─────────────────────────── */
+.hire {
+  padding: 96px 0;
+  background: linear-gradient(
+    135deg,
+    #FFD6EC,
+    #E0F4FF,
+    #E8FFE8
+  );
+}
+.hire-form {
+  display: flex;
+  flex-direction: column;   /* Ini bikin turun */
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hire-form input,
+.hire-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.hire-form textarea {
+  min-height: 120px;
+  resize: none;
+} 
+.contact {
+  padding: 96px 0;
+  background-color: #f8f9fa;
+}
+
+
+.portfolio-card img {
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.05);
+}
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;   /* BIKIN TURUN */
+  align-items: center;      /* BIKIN TENGAH */
+  text-align: center;
+  gap: 30px;
+}
+.hero__intro {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #5A4A4A;
+  max-width: 600px;
+}
+.contact-desc {
+  text-align: center;
+  margin-top: 15px;
+  color: #5A4A4A;
+}
+/* ── CONTACT SECTION UPGRADE ───────────────── */
+
+.contact {
+  padding: 96px 0;
+  background: linear-gradient(
+    135deg,
+    #FFD6EC,
+    #E0F4FF,
+    #E8FFE8
+  );
+}
+
+.contact-links {
+  max-width: 500px;
+  margin: 40px auto 0;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+  background: #fff0f6;
+  transform: translateX(5px);
+}
+
+/* ── CONTACT SECTION PREMIUM ───────────────── */
+
+.contact {
+  padding: 96px 0;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hiasan bunga kiri atas */
+.contact::before {
+  content: "🌸";
+  position: absolute;
+  font-size: 90px;
+  top: 40px;
+  left: 80px;
+  opacity: 0.08;
+  transform: rotate(-15deg);
+}
+
+/* Hiasan sparkle kanan bawah */
+.contact::after {
+  content: "✨";
+  position: absolute;
+  font-size: 70px;
+  bottom: 40px;
+  right: 80px;
+  opacity: 0.08;
+  transform: rotate(15deg);
+}
+
+.contact-links {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin: 40px auto 0;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.contact-links:hover {
+  transform: translateY(-5px);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 25px;
+  padding: 12px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+  background: #fff5fa;
+  transform: translateX(6px);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FF9ED2, #A0E7FF);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 8px 20px rgba(255,158,210,0.4);
+  transition: 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.contact-item a {
+  color: #5A4A4A;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.contact-item a:hover {
+  color: #d63a78;
+}
+
+
+.contact-item a {
+  color: #5A4A4A;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-item a:hover {
+  color: #d63a78;
+}
